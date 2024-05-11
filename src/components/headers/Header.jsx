@@ -4,14 +4,15 @@ import tw from "twin.macro";
 import styled from "styled-components";
 
 import logo from "../../images/logo-icon.jpeg";
+import { FaPhone } from "react-icons/fa";
 
 const Header = tw.header`
   flex justify-between items-center
   max-w-screen-xl mx-auto
 `;
 
-export const NavLink = tw.a`
-  text-lg my-2 lg:text-sm lg:mx-6 lg:my-0 
+export const NavLink = tw.p`
+  text-lg my-2  lg:mx-6 lg:my-0 flex gap-2 items-center
   font-semibold tracking-wide transition duration-300
   pb-1 border-b-2 border-transparent hover:border-primary-500 hocus:text-primary-500
 `;
@@ -20,7 +21,7 @@ export const LogoLink = styled(NavLink)`
   ${tw`flex items-center font-black border-b-0  text-2xl! ml-0!`};
 
   img {
-    ${tw`w-10 mr-3`}
+    ${tw`w-16 mr-3`}
   }
 `;
 
@@ -32,8 +33,9 @@ const links = [
       <NavLink href="/#">Blog</NavLink>
       <NavLink href="/#">Pricing</NavLink>
       <NavLink href="/#">Contact Us</NavLink> */}
-      <NavLink href="/#" tw="lg:ml-12! hidden md:flex">
-        +254700000000
+      <NavLink href="/#" tw="lg:ml-12! hidden md:flex flex-row">
+        <FaPhone />
+        <span>+254700000000</span>
       </NavLink>
       {/* <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/#">Sign Up</PrimaryLink> */}
     </NavLinks>
@@ -55,9 +57,10 @@ export default () =>{
             <DesktopNavLinks css={collapseBreakpointCss}>
             <LogoLink href="/">
                 <img src={logo} alt="logo" />
-                    <span>Summer Grains Ltd <br/>
-                    <span style={{fontSize: "1rem"}}>smile on your table...</span>
-                </span> 
+                <p className="flex flex-col inline-block">
+                  <span>Summer Grains Ltd </span>
+                  <p style={{fontSize: "1rem"}}>smile on your table...</p>
+                </p> 
                 
             </LogoLink>
                 {links}

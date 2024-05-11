@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 //eslint-disable-next-line
@@ -70,10 +70,15 @@ export default ({
   imageSrc=DesignIllustration,
   imageCss=null,
   imageDecoratorBlob = false,
+  myRef = null,
 }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const toggleModal = () => setModalIsOpen(!modalIsOpen);
+
+  const scrollToComponent = () => {
+    myRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -84,18 +89,18 @@ export default ({
             <Heading>{heading}</Heading>
             <Paragraph>{description}</Paragraph>
             <Actions>
-              <PrimaryButton as="a" href={primaryButtonUrl}>{primaryButtonText}</PrimaryButton>
-              <WatchVideoButton onClick={toggleModal}>
+              <PrimaryButton as="a" onClick={scrollToComponent} href={primaryButtonUrl}>{primaryButtonText}</PrimaryButton>
+              {/* <WatchVideoButton onClick={toggleModal}>
                 <span className="playIconContainer">
-                  {/* <PlayIcon className="playIcon" /> */}
+                  <PlayIcon className="playIcon" />
                 </span>
                 <span className="playText">{watchVideoButtonText}</span>
-              </WatchVideoButton>
+              </WatchVideoButton> */}
             </Actions>
           </LeftColumn>
           <RightColumn>
             <IllustrationContainer>
-              <img
+              <img className="rounded rounded-4xl" style={{borderRadius: "2rem"}}
                 css={imageCss}
                 src={imageSrc}
                 alt="Hero"

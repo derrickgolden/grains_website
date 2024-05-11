@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import tw from "twin.macro";
 // import { css } from "styled-components/macro"; //eslint-disable-line
 import AnimationRevealPage from "../helpers/AnimationRevealPage.jsx";
@@ -20,6 +20,8 @@ import chooseUs from "../images/choose-us.jpg";
 // import shopIconImageSrc from "./images/shop-icon.svg";
 
 export default () => {
+  const myRef = useRef(null);
+
   const Subheading = tw.span`tracking-wider text-sm font-medium`;
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
   const HighlightedTextInverse = tw.span`bg-gray-100 text-primary-500 px-4 transform -skew-x-12 inline-block`;
@@ -38,6 +40,7 @@ export default () => {
         imageCss={imageCss}
         imageDecoratorBlob={true}
         primaryButtonText="Contact Us"
+        myRef = {myRef}
       />
 
       <MainFeature
@@ -94,6 +97,7 @@ export default () => {
       />
 
       <DownloadApp
+        myRef={myRef}
         subheading={<Subheading>Call Us</Subheading>}
         text={<>Companies around you are partinering with us at <HighlightedTextInverse>Summer Grains Ltd.</HighlightedTextInverse></>}
       />

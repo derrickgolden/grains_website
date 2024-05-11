@@ -6,16 +6,16 @@ import tw from "twin.macro";
 import { SectionHeading, Subheading as SubheadingBase } from "../../components/misc/Headings.jsx";
 import { SectionDescription } from "../../components/misc/Typography.jsx";
 
+import { FaArrowRightArrowLeft } from "react-icons/fa6";
+import { GrStatusGood } from "react-icons/gr";
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { RiGuideFill } from "react-icons/ri";
+import { GiQuickSlash } from "react-icons/gi";
+import { FaHandHoldingHeart } from "react-icons/fa";
+
 import defaultCardImage from "../../images/ShieldIcon.jsx";
 
 import SvgDecoratorBlob3 from "../../images/SvgDecoratorBlob3.jsx";
-
-import SupportIconImage from "../../images/SupportIcon.jsx";
-import ShieldIconImage from "../../images/ShieldIcon.jsx";
-import CustomizeIconImage from "../../images/CustomizeIcon.jsx";
-import FastIconImage from "../../images/FastIcon.jsx";
-import ReliableIconImage from "../../images/ReliableIcon.jsx";
-import SimpleIconImage from "../../images/SimpleIcon.jsx";
 
 const Container = tw.div`relative`;
 
@@ -69,32 +69,32 @@ export default ({ cards = null, heading = "Amazing Features", subheading = "Feat
 
   const defaultCards = [
     {
-      imageSrc: ShieldIconImage,
+      imageSrc: <FaArrowRightArrowLeft />,
       title: "Reliability",
       description: "Count on us to be there when you need us most. Our steadfast reliability ensures that your needs are met promptly and efficiently, every time."
     },
     { 
-      imageSrc: SupportIconImage, 
+      imageSrc: <GrStatusGood />, 
       title: "Quality Assurance",
       description: "From dealing with grains to being enthusiasts, quality is the cornerstone of our service. We never compromise on standards, guaranteeing you the finest experience possible." 
     },
     { 
-      imageSrc: CustomizeIconImage, 
+      imageSrc: <RiCustomerService2Fill />, 
       title: "Customer-Centric Approach",
       description: "Your satisfaction is our top priority. With a customer-centric mindset, we tailor our service to meet your unique requirements, ensuring every interaction exceeds your expectations." 
     },
     { 
-      imageSrc: ReliableIconImage, 
+      imageSrc: <RiGuideFill />, 
       title: "Expert Guidance",
       description: "Rely on our team's expertise to navigate the complexities of the grains industry. We provide comprehensive guidance to help you make informed decisions and achieve your goals." 
     },
     { 
-      imageSrc: FastIconImage, 
+      imageSrc: <GiQuickSlash />, 
       title: "Efficiency",
       description: "Experience swift and streamlined processes with our efficient services. We prioritize time-saving solutions to optimize your experience and maximize productivity." 
     },
     { 
-      imageSrc: SimpleIconImage, 
+      imageSrc: <FaHandHoldingHeart />, 
       title: "Personalized Care",
       description: "Receive personalized attention and care tailored to your needs. Our dedicated team goes above and beyond to ensure that every aspect of our service reflects your individual preferences." 
     }
@@ -113,7 +113,8 @@ export default ({ cards = null, heading = "Amazing Features", subheading = "Feat
           <Column key={i}>
             <Card>
               <span className="imageContainer">
-                <img src={card.imageSrc || defaultCardImage} alt="" />
+                { card.imageSrc }
+                {/* <img src={card.imageSrc || defaultCardImage} alt="" /> */}
               </span>
               <span className="textContainer">
                 <span className="title">{card.title || "Fully Secure"}</span>
